@@ -1,0 +1,96 @@
+
+This is not yet a complete game.
+
+
+Different fruit types
+ * fruit that makes the snake grow
+ * fruit that makes the snake shrink
+ * fruit that makes the snake shrink, but leaves behind a rock
+ * fruit that enables the snake to move/destroy a rock
+ * fruit that makes the grid enlarge
+ * fruit that makes the grid shrink
+ * fruit that makes the snake faster
+ * fruit that makes the snake slower
+
+The playing field doesn't have to always be an open grid, it could be a
+sophisticated level.
+
+Fail states can be removed in the favor of puzzling and level design.
+Rewinding would be essential to changing this game into a puzzler.
+
+Puzzles/Challenges
+ * similar to Snakebird, apples and rocks can be placed in specific arrangements
+   to get the player to think about which way to move and what order to eat the apples in
+   otherwise the challenge is designed to cause a clear indication of failure. For example,
+   if the player eats the fruit that-shrinks-but-leaves-a-rock, doing so will block their exit
+   leaving the player in a scenario where they have to think about what else they can do before
+   closing that path.
+ * buttons - the snake could be required to be laying across button(s) to open a door and move on.
+    requiring the snake to lay across multiple buttons is not unlike the connect-the-dot style puzzles
+        observed in The Witness. However the exception is now the player has to consider the length of their
+        line in addition to its position and whether or not they're blocking paths they need.
+ * the snake can be required to block or unblock trip wires
+ * the snake can be required to avoid the above things in order to exit
+
+Puzzle Snake (http://www.kpym.com/puzzle-snake/)
+This game tries to do puzzling, but it only succeeds at creating a
+set of challenging mazes to navigate rather than interesting puzzles.
+That being said, it does introduce this interesting idea where the
+snake is surrounded by fruit and is forced to eat at least one.
+
+
+3D grid
+Typically games that move from the "2D-tile grid game" to 3D,
+only ever implement 3D as a representation of the world rather
+than an element of it. Games that do operate on a 3D grid tend
+to treat the 3D dimension as storage for layers and the game
+continues to operate on mostly independant 2D planes. An example of
+this is in many of those monster collection games where in specific
+areas the player is required to move boulders around to solve a
+puzzle and the boulder is often on another floor than the floor
+it needs to be on, so the boulder is pushed by the player into
+a hole, in which the boulder falls to the floor below.
+
+But what if our game does not or cannot operate on layers?
+Answering this question comes with several problems.
+This first of which is in the represention. On a 2D-grid
+it is always clear where you can and cannot go, but on a 3D-
+grid, from the outside looking in, objects and the snake's body
+could easily obscure the player's vision from open spaces or
+the target fruit. Making the perspective first-person could
+easily lead to the same problems. One could make the snake
+much thinner, and then there'd be much more free space to look
+between the body, but then you have the problem of "Why is the
+snake bound to such large spaces if it is small enough to
+maneuver much more freely." This is not unlike the problem
+of designing 3D sokoban characters to be stockier, so that
+the characters do not appear lanky enough to "just walk
+around eachother."
+
+There's also the problem of getting the player to not question
+about a snake floating around in a 3D space. On a 2D plane, it
+is easily inferred that the snake is slithering on the ground.
+In 3D there's a couple of solutions that exist already that can
+potentially solve this problem. One is in Snakebird, where the
+idea is that Snakebird could essentially move any which way, but
+at least one part of its body much be on top of a ground tile.
+In this way, when none of its body is touching ground, it falls
+due to gravity. Another solution can be observed in SnakePass,
+where certain levels take place underwater, enabling free movement
+in any direction due to real snakes' ability to swim. Another solution
+comes from the fact that snakes can climb along rods/poles. It may not
+be too outlandish to have the snake move about a grid of rods.
+However, this comes with the problem that if the snake's body
+is completely linear along the up vector of this world, it would
+fall due to gravity, unless perhaps this game takes place on a
+space station.
+SnakeSnakeSnake solves this problem by going back
+to layers and allowing the snake to go up one half layer at a time,
+with half blocks acting as stairs. However, since the snake moves
+automatically at a pretty fast pace and the snake is controlled
+by turning 90 degrees at a time using A and D, gameplay feels
+clunky and unforgiving.
+
+Unfortunately, both of these are such important problems that
+not getting one or the other right will surely make a great
+3D-grid snake game, into a poor one.
